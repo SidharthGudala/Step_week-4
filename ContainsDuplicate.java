@@ -1,17 +1,13 @@
-import java.util.Arrays;
-
-class MergeSortedArrays {
+class ContainsDuplicate {
     public static void main(String[] args) {
-        int[] a = {1, 3, 5}, b = {2, 4, 6};
-        int[] c = new int[a.length + b.length];
-        int i = 0, j = 0, k = 0;
+        int[] a = {1, 2, 3, 1};
+        boolean found = false;
 
-        while (i < a.length && j < b.length)
-            c[k++] = a[i] < b[j] ? a[i++] : b[j++];
+        for (int i = 0; i < a.length; i++)
+            for (int j = i + 1; j < a.length; j++)
+                if (a[i] == a[j])
+                    found = true;
 
-        while (i < a.length) c[k++] = a[i++];
-        while (j < b.length) c[k++] = b[j++];
-
-        System.out.println(Arrays.toString(c));
+        System.out.println(found);
     }
 }
